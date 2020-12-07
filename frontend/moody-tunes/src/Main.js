@@ -8,7 +8,7 @@ function Main(props) {
   return (
     <div className="large-container">
       <Banner />
-      <div className="header-text">What is YANTRA?</div>
+      <div className="header-text">Temp Title</div>
       <div
         style={{
           display: "flex",
@@ -25,14 +25,10 @@ function Main(props) {
               lineHeight: "0px",
             }}
           >
-            Adaptable Quizzes
+            Temp Title
           </span>
           <div className="content-text">
-          With a system designed to make flipped classrooms more effective, 
-          adaptable quizzes allow each student to have a personalized experience 
-          that is tailored to their unique potential. Instructors ensure that every 
-          student reaches a minimum level of understanding of the concepts before 
-          the class and students are encouraged to develop their mastery in the course content.
+          temp values
           </div>
         </div>
         <div className="content-card">
@@ -43,16 +39,10 @@ function Main(props) {
               lineHeight: "0px",
             }}
           >
-            Insights
+            Temp Title
           </span>
           <div className="content-text">
-            With robust algorithms powering YANTRA, students and instructors 
-            are able to gather more insights about their performance 
-            while also working on areas which need improvement. These 
-            algorithms puts the power back into the student's hands to 
-            control their learning before the class while the instructor 
-            focusses on making in-class engagement more effective and 
-            valuable to students’ learning.
+          temp values
           </div>
         </div>
         <div className="content-card">
@@ -63,16 +53,10 @@ function Main(props) {
               lineHeight: "0px",
             }}
           >
-            Intuitive
+            Temp Title
           </span>
           <div className="content-text">
-            Designed by educational-researchers, YANTRA can be 
-            easily integrated with an LMS like Canvas. With an 
-            easy setup process, YANTRA will be able to empower 
-            flipped classes with a pedagogy that helps in better 
-            learning management for the students and the instructor. 
-            With its intuitive user-design, instructors are able 
-            engage with YANTRA and harness its capabilities seamlessly. 
+          temp values
           </div>
         </div>
       </div>
@@ -95,11 +79,10 @@ function Main(props) {
               lineHeight: "0px",
             }}
           >
-            For Students
+            Temp Title
           </span>
           <div className="content-text">
-            Prepare for the in-class activities for a flipped class and 
-            improve your learning outcomes by engaging in adaptive quizzing experience.
+          temp values
           </div>
           <div
             style={{
@@ -128,13 +111,10 @@ function Main(props) {
               lineHeight: "0px",
             }}
           >
-            For Instructors
+            Temp Title
           </span>
           <div className="content-text">
-            YANTRA is a whole new insight and analysis tool for flipped classes that 
-            is able to help your students to be prepared before they come to the 
-            class and assist you to design the most valuable in-class learning 
-            experience for your students.  
+          temp values 
           </div>
           <div
             style={{
