@@ -31,13 +31,9 @@
 
 .primary-text {
   padding-top: 120px;
-  margin-left: 35%;
   font-size: 55px;
-  animation-duration: 2s;
-  animation-timing-function: ease-out;
-  animation-delay: 0s;
-  animation-iteration-count: 1;
-  animation-name: slideIntoPage;
+  animation-delay: 4s;
+  animation: fadeIn 2s;
   font-family: "Josefin Sans", sans-serif;
   font-weight: 600;
 }
@@ -66,6 +62,7 @@
   flex: 1 1 50%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .banner-container {
@@ -74,18 +71,28 @@
   flex: 1 1 auto;
 }
 
-@keyframes growLarger {
+@keyframes fadeIn {
   0% {
-    transform: scale(0) perspective(1500px) rotateY(-15deg) rotateX(5deg)
-      rotateZ(-1deg);
+    opacity: 0;
+  }
+  33% {
+    opacity: 0;
   }
   100% {
-    transform: scale(1) perspective(1500px) rotateY(-15deg) rotateX(5deg)
-      rotateZ(-1deg);
+    opacity: 1;
   }
 }
 
-.demo-quiz {
+@keyframes growLarger {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.music-info {
   width: 750px;
   height: 425px;
   padding: 25px 35px;
@@ -97,7 +104,6 @@
   background-color: var(--webpage-background);
   margin-top: 55px;
   padding-bottom: 50px;
-  transform: perspective(1500px) rotateY(-15deg) rotateX(5deg) rotateZ(-1deg);
   box-shadow: 0 27.5px 40px -17.5px rgba(0, 0, 0, 0.4),
     46.2px 37.5px 40px -17.5px rgba(0, 0, 0, 0.4);
   animation-duration: 1s;
@@ -109,14 +115,14 @@
 }
 
 @media screen and (max-width: 1700px) {
-  .demo-quiz {
+  .music-info {
     position: absolute;
     margin-right: 25%;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .demo-quiz {
+  .music-info {
     visibility: hidden;
   }
 
@@ -144,7 +150,7 @@
   }
 }
 
-.demo-question {
+.music-text {
   width: 100%;
   background-color: white;
   height: 75%;
@@ -152,27 +158,19 @@
   box-shadow: 0px 2px 13px 0px rgba(0, 0, 0, 0.15);
 }
 
-.demo-question-prompt {
+.music-text-prompt {
   font-family: Roboto, sans-serif;
   font-weight: 100;
   padding: 20px;
 }
 
-.demo-code-block {
-  padding: 20px;
-  width: 100%;
-  margin-top: 10px;
-  background-color: var(--light-gray);
-  border-left: 3px solid var(--primary-color);
-}
-
-.demo-button {
+.music-button {
   width: 100%;
   background-color: var(--primary-color);
   border: 1px solid var(--primary-color);
   border-radius: 2px;
   margin-top: 15px;
-  height: 10%;
+  height: 35px;
   color: white;
   display: flex;
   justify-content: center;
@@ -195,14 +193,14 @@
   }
 }
 
-.demo-line {
+.music-line {
   flex-wrap: nowrap;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.demo-form {
+.music-form {
   width: 75%;
   margin-top: 20px;
   background-color: var(--light-gray);
@@ -211,7 +209,7 @@
   height: 35px;
 }
 
-.demo-check {
+.music-check {
   width: 20%;
   margin-top: 20px;
   margin-left: auto;
@@ -227,24 +225,13 @@
   letter-spacing: 0.05em;
 }
 
-.demo-code-line {
-  background-color: var(--primary-gray);
-  height: 8px;
-  margin-bottom: 5px;
-  animation-duration: 3s;
-  animation-timing-function: ease-out;
-  animation-delay: 0s;
-  animation-iteration-count: 1;
-  animation-name: slideRight;
-}
-
 .content-card {
   background-color: white;
   justify-content: center;
   align-items: center;
   text-align: center;
   color: var(--primary-gray);
-  width: 300px;
+  width: 70%;
   padding: 30px 35px;
   height: 400px;
   margin-top: 15px;
@@ -252,9 +239,9 @@
   border-radius: 15px;
   box-shadow: 0px 2px 13px 0px rgba(0, 0, 0, 0.25);
 }
-.content-card:hover {
+/* .content-card:hover {
   box-shadow: 0 0 35px -2px rgba(0, 0, 0, 0.4);
-}
+} */
 
 .content-text {
   font-size: 15px;
@@ -262,7 +249,7 @@
   color: var(--primary-gray);
 }
 
-.learn-card {
+.spotify-card {
   background-color: white;
   justify-content: center;
   align-items: center;
@@ -270,13 +257,13 @@
   color: var(--primary-gray);
   width: 450px;
   padding: 30px 35px;
-  height: 260px;
+  height: 225px;
   margin-top: 15px;
   margin: 10px 20px;
   position: relative;
   border-radius: 15px;
   box-shadow: 0px 2px 13px 0px rgba(0, 0, 0, 0.25);
 }
-.learn-card:hover {
+/* .spotify-card:hover {
   box-shadow: 0 0 35px -2px rgba(0, 0, 0, 0.4);
-}
+} */

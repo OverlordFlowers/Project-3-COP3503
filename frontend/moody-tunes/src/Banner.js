@@ -1,4 +1,5 @@
 import React from "react";
+import ValueSlider from "./ValueSlider"
 
 function Banner() {
   return (
@@ -6,52 +7,27 @@ function Banner() {
       <div className="home-div">
         <div className="banner-container">
           <div className="text-container">
-            <div className="primary-text">YANTRA</div>
-            <div className="secondary-text">Fostering Formative Learning</div>
+            <div className="primary-text">Moody Tunes</div>
+            < ValueSlider emotion="Happiness"/>
+            < ValueSlider emotion="Sadness"/>
+            < ValueSlider emotion="Excited"/>
           </div>
           <div style={{ display: "flex", flex: "1 1 50%" }}>
-            <div className="demo-quiz">
-              <h1>Question 16</h1>
-              <div className="demo-question">
-                <div className="demo-question-prompt">
-                  What is the output of the following code:
-                  <div className="demo-code-block">
-                    <div
-                      style={{ width: "15%" }}
-                      className="demo-code-line"
-                    ></div>
-                    <div
-                      style={{ width: "18%", marginLeft: "5%" }}
-                      className="demo-code-line"
-                    ></div>
-                    <div
-                      style={{ width: "24%", marginLeft: "10%" }}
-                      className="demo-code-line"
-                    ></div>
-                    <div
-                      style={{ width: "22%", marginLeft: "10%" }}
-                      className="demo-code-line"
-                    ></div>
-                    <div
-                      style={{ width: "27%", marginLeft: "10%" }}
-                      className="demo-code-line"
-                    ></div>
-                    <div
-                      style={{ width: "10%", marginLeft: "5%" }}
-                      className="demo-code-line"
-                    ></div>
-                    <div
-                      style={{ width: "10%" }}
-                      className="demo-code-line"
-                    ></div>
-                  </div>
-                  <div className="demo-line">
-                    <div className="demo-form"></div>
-                    <div className="demo-check">Check</div>
-                  </div>
+            <div className="music-info">
+              <h1>Music Player</h1>
+              <div className="music-text">
+                <div className="music-text-prompt">
+                  
                 </div>
               </div>
-              <div className="demo-button">Next</div>
+              <div className="row">
+                <div className="col">
+                  <div className="music-button">Previous</div>
+                </div>
+                <div className="col">
+                <div className="music-button">Next</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

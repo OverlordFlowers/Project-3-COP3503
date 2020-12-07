@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "react-bootstrap";
 import Banner from "./Banner";
 import Footer from "./Footer";
 
@@ -8,7 +7,7 @@ function Main(props) {
   return (
     <div className="large-container">
       <Banner />
-      <div className="header-text">Temp Title</div>
+      <div className="header-text">Playlist</div>
       <div
         style={{
           display: "flex",
@@ -18,50 +17,13 @@ function Main(props) {
         }}
       >
         <div className="content-card">
-          <span
-            style={{
-              fontWeight: "700",
-              fontSize: "25px",
-              lineHeight: "0px",
-            }}
-          >
-            Temp Title
-          </span>
           <div className="content-text">
-          temp values
-          </div>
-        </div>
-        <div className="content-card">
-          <span
-            style={{
-              fontWeight: "700",
-              fontSize: "25px",
-              lineHeight: "0px",
-            }}
-          >
-            Temp Title
-          </span>
-          <div className="content-text">
-          temp values
-          </div>
-        </div>
-        <div className="content-card">
-          <span
-            style={{
-              fontWeight: "700",
-              fontSize: "25px",
-              lineHeight: "0px",
-            }}
-          >
-            Temp Title
-          </span>
-          <div className="content-text">
-          temp values
+            Listed Songs Here
           </div>
         </div>
       </div>
       <div className="header-text" style={{ marginTop: "40px" }}>
-        Interested?
+        Music Catalog Provided By:
       </div>
       <div
         style={{
@@ -71,69 +33,14 @@ function Main(props) {
           margin: "0px -20px",
         }}
       >
-        <div className="learn-card">
+        <div className="spotify-card">
           <span
             style={{
-              fontWeight: "700",
-              fontSize: "25px",
-              lineHeight: "0px",
+              width: "100%"
             }}
           >
-            Temp Title
+            <img src={"https://developer.spotify.com/assets/branding-guidelines/logo@2x.png"} alt="Spotify Logo" />;
           </span>
-          <div className="content-text">
-          temp values
-          </div>
-          <div
-            style={{
-              display: "block",
-              position: "absolute",
-              bottom: "30px",
-              width: `calc(100% - 75px)`,
-            }}
-          >
-            <Button
-              className="btn btn-main"
-              style={{ margin: "0 auto" }}
-              onClick={() => {
-                props.history.push(`/student`);
-              }}
-            >
-              Learn More
-            </Button>
-          </div>
-        </div>
-        <div className="learn-card">
-          <span
-            style={{
-              fontWeight: "700",
-              fontSize: "25px",
-              lineHeight: "0px",
-            }}
-          >
-            Temp Title
-          </span>
-          <div className="content-text">
-          temp values 
-          </div>
-          <div
-            style={{
-              display: "block",
-              position: "absolute",
-              bottom: "30px",
-              width: `calc(100% - 75px)`,
-            }}
-          >
-            <Button
-              className="btn btn-main"
-              style={{ margin: "0 auto" }}
-              onClick={() => {
-                props.history.push(`/instructor`);
-              }}
-            >
-              Learn More
-            </Button>
-          </div>
         </div>
       </div>
       <Footer />

@@ -1,0 +1,5 @@
+.emotion-slider {
+  width: 400px;
+  animation-delay: 4s;
+  animation: fadeIn 2s;
+}

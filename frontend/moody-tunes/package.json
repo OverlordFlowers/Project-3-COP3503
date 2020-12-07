@@ -13,6 +13,7 @@
     "bootstrap": "^4.5.0",
     "graphql": "^15.3.0",
     "jquery": "^3.5.1",
+    "mdbreact": "^5.0.1",
     "path-to-regexp": "^6.1.0",
     "popper.js": "^1.16.1",
     "react": "^16.13.1",
