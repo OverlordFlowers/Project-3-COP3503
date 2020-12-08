@@ -277,8 +277,12 @@ function queueSongs(src, trackIDs, playlist_length) {
 // function call needs to return an array of track IDs
 module.exports = {
   restAPI: function (target, search) {
-    let data = connectGraph(target, 20, search);
-    console.log(data);
-    return { data: data };
+    return connectGraph(target, 20, search)
+      .then((res) => {
+        return { data: res };
+      })
+      .catch(() => {
+        console.log("error");
+      });
   },
 };

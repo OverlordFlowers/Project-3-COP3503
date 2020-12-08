@@ -5,26 +5,19 @@ import ValueSlider from "./ValueSlider";
 function Banner(props) {
   // Pass in spotify ID num
   const emotionList = ["Happiness", "Sadness", "Excited"];
-  const [valueList, setValueList] = useState([]);
 
   useEffect(() => {
     const valueObject = { Happiness: 0, Sadness: 0, Excited: 0 };
-    setValueList(valueObject);
+    props.setValueList(valueObject);
   }, []);
-
-  const setSlideValue = (event) => {
-    const { name, value } = event.target;
-    valueList[name] = Number(value);
-    setValueList(valueList);
-  };
 
   const sliderComponents = emotionList.map((emotion, index) => (
     <ValueSlider
       key={index}
       id={index}
-      valueList={valueList}
+      valueList={props.valueList}
       emotion={emotion}
-      handleChange={(event) => setSlideValue(event)}
+      handleChange={(event) => props.setSlideValue(event)}
     />
   ));
 
@@ -52,14 +45,16 @@ function Banner(props) {
             <div></div>
           </div>
           <div style={{ display: "flex", flex: "1 1 50%" }}>
-            <MusicPlayer
-              image={props.curentSong.image}
-              song={props.curentSong.song}
-              albumn={props.curentSong.albumn}
-              artist={props.curentSong.artist}
-              changeSong={props.changeSong}
-              songIndex={props.songIndex}
-            />
+            {props.curentSong !== undefined ? (
+              <MusicPlayer
+                image={props.curentSong.image}
+                song={props.curentSong.song}
+                albumn={props.curentSong.albumn}
+                artist={props.curentSong.artist}
+                changeSong={props.changeSong}
+                songIndex={props.songIndex}
+              />
+            ) : null}
           </div>
         </div>
       </div>
