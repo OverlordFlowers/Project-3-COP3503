@@ -117,7 +117,7 @@ const connectGraph = async (target, playlist_length, search) => {
   // Math.random gives the illusion of variance. Come back to me when I've taken linear algebra and can process the data more.
   for (let i = 0; i < results.length; i++) {
     for (
-      let j = Math.floor(Math.random() * -4);
+      let j = Math.floor(Math.random() * -4) - 1;
       j <= Math.floor(Math.random() * 4) + 1;
       j++
     ) {
@@ -142,7 +142,8 @@ const connectGraph = async (target, playlist_length, search) => {
     source = bfs(Math.floor(results.length / 2), target, trackMap);
     console.timeEnd("bfs");
   }
-
+  console.log(source);
+  console.log("");
   trackIDs = queueSongs(source, trackIDs, playlist_length);
   return trackIDs;
 };
@@ -180,7 +181,7 @@ function processCSV() {
 // DFS
 function dfs(src, target, trackMap) {
   // Threshold so dfs returns a defined result.
-  var threshold = 2;
+  var threshold = 15;
   // Stack for dfs.
   var adjNodes = new Stack();
   // Keeps track of which nodes have been visited.
@@ -196,7 +197,7 @@ function dfs(src, target, trackMap) {
       target - threshold <= results[node].metric &&
       results[node].metric <= target + threshold
     ) {
-      console.log(results[node].metric);
+      //console.log(results[node].metric);
       return node;
     }
     // If the node is adjacent and has not been visited, push it into the stack.
@@ -214,7 +215,7 @@ function dfs(src, target, trackMap) {
 // BFS
 function bfs(src, target, trackMap) {
   // Threshold so bfs always returns a defined result.
-  var threshold = 2;
+  var threshold = 15;
   // Queue for bfs.
   var adjNodes = new Queue();
   // Keeps track of which nodes have been visited.
@@ -231,7 +232,7 @@ function bfs(src, target, trackMap) {
       target - threshold <= results[node].metric &&
       results[node].metric <= target + threshold
     ) {
-      console.log(results[node].metric);
+      //console.log(results[node].metric);
       return node;
     }
     // If the node is adjacent and has not been visited, push it into the queue.
@@ -252,20 +253,21 @@ function queueSongs(src, trackIDs, playlist_length) {
   var visited = new Array(trackMap.numVertices).fill(false);
   // Push source node as a starting point.
   adjNodes.enqueue(src);
+  //console.log(src);
   visited[src] = true;
 
   while (!adjNodes.isEmpty()) {
     node = adjNodes.dequeue();
 
     // If playlist count reached, return.
-    if (trackIDs.length == playlist_length) {
+    if (trackIDs.length >= playlist_length) {
       return trackIDs;
     }
     // If the node is adjacent and has not been visited, push it into the queu.
     for (let j = 0; j < trackMap.adjList.get(node).length; j++) {
       curr = trackMap.adjList.get(node)[j];
-
-      if (visited[curr] == false) {
+      //console.log(curr);
+      if (visited[curr] == false && trackIDs.length != playlist_length) {
         visited[curr] = true;
         adjNodes.enqueue(curr);
         // Put into the trackIDs array the node's ID.
@@ -274,6 +276,7 @@ function queueSongs(src, trackIDs, playlist_length) {
     }
   }
 }
+// test:
 // connectGraph(5000, 20, 1)
 // function call needs to return an array of track IDs
 module.exports = {

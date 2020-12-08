@@ -142,8 +142,6 @@ function Main() {
             console.log("spotify fetch error");
           });
       });
-
-    setSearch(null);
   };
 
   useEffect(() => {
@@ -159,7 +157,12 @@ function Main() {
       });
     }
 
+    if (searchValue == null) {
+      return;
+    }
+
     performUpdate(computedEmotionValue);
+    setSearch(null);
   }, [searchValue]);
 
   return (
