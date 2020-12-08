@@ -53,7 +53,8 @@ function Main() {
     if (index < 0) {
       index = length - 1;
     }
-    setSong(playlistData[index]);
+
+    setSong(playlistData[Number(index)]);
     setSongIndex(Number(index));
   };
 
