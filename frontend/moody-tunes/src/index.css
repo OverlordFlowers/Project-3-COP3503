@@ -1,0 +1,127 @@
+:root {
+  --primary-color: #5a78a3;
+  --secondary-color: #ffffff;
+  --off-white: #ebedf0;
+  --primary-gray: #212121;
+  --secondary-gray: #bdbdbd;
+  --light-gray: #f5f5f5;
+  --webpage-background: whitesmoke;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--webpage-background);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.btn-main {
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  font-weight: normal;
+  letter-spacing: 0.05em;
+  border: 0.5px solid var(--primary-color);
+  border-radius: 3px;
+}
+.btn-main:hover {
+  background: var(--secondary-color) !important;
+  background-color: var(--secondary-color) !important;
+  color: var(--primary-color) !important;
+  border-color: var(--secondary-color) !important;
+}
+
+.btn-link-disabled,
+button[disabled] {
+  border: 1px solid var(--secondary-gray) !important;
+  background-color: var(--light-gray) !important;
+  color: var(--primary-gray) !important;
+  pointer-events: none;
+}
+
+input[disabled] {
+  border: 1px solid var(--secondary-gray);
+  background: var(--light-gray);
+  background-color: var(--light-gray);
+  color: var(--primary-gray);
+  border-radius: 2px;
+  opacity: 0.65;
+}
+
+img {
+  width: inherit;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.grid-center {
+  margin: auto;
+}
+
+.rowC {
+  display: flex;
+  flex-direction: row;
+}
+
+.loading-container {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: var(--webpage-background);
+}
+
+.loader {
+  left: 50%;
+  top: 50%;
+  position: absolute;
+}
+
+.error-card {
+  background-color: var(--red-color);
+  color: var(--secondary-color);
+}
+
+.success-card {
+  background-color: var(--green-color);
+  color: var(--secondary-color);
+}
+
+/* Subtracting the height of the NavBar */
+.page-content {
+  display: flex;
+  min-height: 95vh;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 95vh;
+  min-height: -webkit-calc(100vh - 92px);
+  min-height: -moz-calc(100vh - 92px);
+  min-height: calc(100vh - 92px);
+}
+
+.sp-bottom {
+  margin-bottom: 40px !important;
+}
+
+.router-page-link {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+.router-page-link:hover {
+  color: var(--secondary-gray);
+  text-decoration: none;
+}

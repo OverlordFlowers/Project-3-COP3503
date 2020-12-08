@@ -1,0 +1,45 @@
+/* custom navbar */
+.navbar-container {
+  padding-right: 5% !important;
+  padding-left: 5% !important;
+}
+.navbar-custom {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  color: var(--secondary-color);
+  padding-left: 10px;
+}
+.navbar-custom .navbar-nav .nav-link {
+  color: var(--off-white);
+}
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:focus .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: var(--secondary-color);
+}
+.navbar-custom .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbar-brand:hover,
+.nav-link:hover {
+  color: var(--secondary-color) !important;
+}
+
+.router-link {
+  color: var(--off-white);
+  text-decoration: none;
+  padding: 10px;
+}
+.router-link:hover {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+.selected {
+  color: white;
+  font-weight: bold;
+}
