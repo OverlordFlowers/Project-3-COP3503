@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import Playlist from "./Playlist";
 
 function Main() {
+  //This will be a temp or default value
   let playlistData = [
     {
       image: "https://i.scdn.co/image/ab67616d0000b273072e9faef2ef7b6db63834a3",
@@ -17,11 +18,11 @@ function Main() {
 
   const [song, setSong] = useState([]);
   const [songIndex, setSongIndex] = useState();
+  const [searchValue, setSearch] = useState(-1);
   // const [playlistData, setPData] = useState([]);
-
   const spotifyAuth =
     "BQC-QcUYiOdrYj4KnaT__4NzIWb7TNOhodnC8koXgBcx9dA0-9h9UUDxCDiC5KyVFVaOB8vbZnS87JKe_gA";
-
+  //This is OUR api call data
   let spotifyIDs = [
     { spotifyId: "2xLMifQCjDGFmkHkpNLD9h" },
     { spotifyId: "2xLMifQCjDGFmkHkpNLD9h" },
@@ -84,7 +85,6 @@ function Main() {
       index = 0;
     }
 
-    console.log(index);
     if (index < 0) {
       index = length - 1;
     }
@@ -92,9 +92,20 @@ function Main() {
     setSongIndex(index);
   };
 
+  const searchButton = (value) => {
+    setSearch(value);
+    console.log(value);
+    // make our api call here
+  };
+
   return (
     <div className="large-container">
-      <Banner curentSong={song} songIndex={songIndex} changeSong={changeSong} />
+      <Banner
+        curentSong={song}
+        songIndex={songIndex}
+        changeSong={changeSong}
+        searchButton={searchButton}
+      />
       <Playlist data={playlistData} changeSong={changeSong} />
       <Catalog />
       <Footer />

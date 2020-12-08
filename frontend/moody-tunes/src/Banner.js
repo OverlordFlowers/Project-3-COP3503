@@ -36,8 +36,18 @@ function Banner(props) {
             <div className="primary-text">Moody Tunes</div>
             {sliderComponents}
             <div style={{ padding: "100px" }} className="row">
-              <button className="btn btn-main col">BTS Search</button>
-              <button className="btn btn-main col">DFS Search</button>
+              <button
+                className="btn btn-main col"
+                onClick={() => props.searchButton(0)}
+              >
+                BTS Search
+              </button>
+              <button
+                className="btn btn-main col"
+                onClick={() => props.searchButton(1)}
+              >
+                DFS Search
+              </button>
             </div>
             <div></div>
           </div>
