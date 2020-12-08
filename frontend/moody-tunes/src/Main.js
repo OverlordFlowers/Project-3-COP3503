@@ -7,6 +7,7 @@ import Playlist from "./Playlist";
 import LoadingPage from "./LoadingPage";
 
 function Main() {
+  // These are variables that need to be tracking in state management
   const [song, setSong] = useState([]);
   const [songIndex, setSongIndex] = useState();
   const [searchValue, setSearch] = useState(null);
@@ -14,9 +15,11 @@ function Main() {
   const [valueList, setValueList] = useState([]);
   const [spotifyIDs, setSpotify] = useState([]);
   const [isLoading, setLoading] = useState(false);
+
+  // This spotify auth token only lasts for an hour
   const spotifyAuth =
     "BQB8qSa57TC2CLZVy1Xih83nM_O_hTyvOrF5rgyqX2rnH9o0TBKWRRFypxQJ5Ga8B6O4ixg83SixCsIo8tU";
-  //This will be a temp or default value
+  // This will be a default value
   let playlistDataDefault = [
     {
       image: "https://i.scdn.co/image/ab67616d0000b273072e9faef2ef7b6db63834a3",
@@ -25,11 +28,10 @@ function Main() {
       artist: "Travis Scott",
     },
   ];
-  let spotifyIDInital = [
-    { spotifyId: "2xLMifQCjDGFmkHkpNLD9h" },
-    { spotifyId: "2xLMifQCjDGFmkHkpNLD9h" },
-  ];
+  // This will be a default value
+  let spotifyIDInital = [{ spotifyId: "2xLMifQCjDGFmkHkpNLD9h" }];
 
+  // We need to initalize these variables to these values only when the page loads
   useEffect(() => {
     setValueList({ Happiness: 0, Sadness: 0, Excited: 0 });
     setPData(playlistDataDefault);
@@ -38,14 +40,18 @@ function Main() {
     setSpotify(spotifyIDInital);
   }, []);
 
+  // This function is passed into other components to set slide value
   const setSlideValue = (event) => {
     const { name, value } = event.target;
     valueList[name] = Number(value);
     setValueList(valueList);
   };
 
+  // This function allows the playlist to change the song displayed
   const changeSong = (index) => {
     let length = Object.keys(playlistData).length;
+
+    // If out of range, go to the other end of the playlist
     if (index >= length) {
       index = 0;
     }
@@ -58,6 +64,7 @@ function Main() {
     setSongIndex(Number(index));
   };
 
+  // This function will fetch data using spotify's api
   const spotifyFetch = (spotifyID) => {
     // Headers
     const config = {
@@ -66,7 +73,7 @@ function Main() {
       },
     };
 
-    // Request Body
+    // Request URL
     const url = "https://api.spotify.com/v1/tracks/" + spotifyID;
 
     return axios
@@ -80,8 +87,10 @@ function Main() {
       });
   };
 
+  // This function will get the data needed from spotify in the format needed
   const getData = async (idList) => {
     let songData = [];
+    // For each song, compile the relevent information
     for (let i = 0; i < Object.keys(idList).length; i++) {
       await spotifyFetch(idList[i])
         .then((data) => {
@@ -103,13 +112,15 @@ function Main() {
           songData.push(object);
         });
     }
+    // update playlist and displayed song
     setPData(songData);
     setSongIndex(0);
     setSong(songData[0]);
   };
 
+  // this fetch is for an api call to our express server
   const backendFetch = (target, search) => {
-    // Request Body
+    // Request url
     const url = "http://localhost:8000/api/" + target + "/" + search;
 
     return axios
@@ -123,6 +134,7 @@ function Main() {
       });
   };
 
+  // this function will do all the required tasks when searching is needed
   const searchUpdate = async (target, search) => {
     await backendFetch(target, search)
       .then((data) => {
@@ -148,6 +160,7 @@ function Main() {
       });
   };
 
+  // when the search value is changed (button pressed), we will perform the needed search
   useEffect(() => {
     let computedEmotionValue = Math.round(
       5000 +
@@ -169,6 +182,7 @@ function Main() {
     setSearch(null);
   }, [searchValue]);
 
+  // the loading screen will stop being displayed when we get a change in displayed song
   useEffect(() => {
     setLoading(false);
   }, [song]);

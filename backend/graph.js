@@ -1,4 +1,5 @@
 const csv = require("csv-parser");
+const { performance } = require("perf_hooks");
 const fs = require("fs");
 const { connect } = require("http2");
 let results = [];
@@ -132,16 +133,18 @@ const connectGraph = async (target, playlist_length, search) => {
 
   // To provide a choice between dfs and bfs.
   // To effectively compare between both types of searches, it is necessary to start from the same point.
-  // The original intent was to have
+  // The original intent was to have a random song be our source and search from there,
+  // but that would make it difficult to compare the two searches.
+  var t0 = performance.now();
   if (search == 0) {
-    console.time("dfs");
     source = dfs(Math.floor(results.length / 2), target, trackMap);
-    console.timeEnd("dfs");
   } else {
-    console.time("bfs");
     source = bfs(Math.floor(results.length / 2), target, trackMap);
-    console.timeEnd("bfs");
   }
+  var t1 = performance.now();
+  // Calculates the amount of time this algorithm took.
+  var time = t1 - t0;
+  console.log(time);
   console.log(source);
   console.log("");
   trackIDs = queueSongs(source, trackIDs, playlist_length);
