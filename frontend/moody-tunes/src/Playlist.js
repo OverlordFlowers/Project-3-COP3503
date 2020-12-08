@@ -3,6 +3,7 @@ import React from "react";
 function Playlist(props) {
   const playlistData = props.data;
 
+  // We need to create a song card for each item in the playlist
   const songComponents = playlistData.map((song, index) => (
     <div
       key={index}

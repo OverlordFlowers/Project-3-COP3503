@@ -9,6 +9,7 @@ import LoadingPage from "./LoadingPage";
 function Main() {
   // These are variables that need to be tracking in state management
   const [song, setSong] = useState([]);
+  const [time, setTime] = useState(null);
   const [songIndex, setSongIndex] = useState();
   const [searchValue, setSearch] = useState(null);
   const [playlistData, setPData] = useState([]);
@@ -18,7 +19,7 @@ function Main() {
 
   // This spotify auth token only lasts for an hour
   const spotifyAuth =
-    "BQB8qSa57TC2CLZVy1Xih83nM_O_hTyvOrF5rgyqX2rnH9o0TBKWRRFypxQJ5Ga8B6O4ixg83SixCsIo8tU";
+    "BQD5pHmS_B-p35amytv-7-3eH9I8wz9TgRza_AcM2Y-_yJnBHmIGWCO_iUmqZcVPZQI7Sw5LshGAhKP0K5E";
   // This will be a default value
   let playlistDataDefault = [
     {
@@ -142,6 +143,7 @@ function Main() {
           console.log("backend error");
           return;
         }
+        setTime(data.time);
         setSpotify(data.data);
         return data;
       })
@@ -200,6 +202,7 @@ function Main() {
             searchButton={setSearch}
             setSlideValue={setSlideValue}
             valueList={valueList}
+            time={time}
           />
           {playlistData !== [] || playlistData !== undefined ? (
             <Playlist data={playlistData} changeSong={changeSong} />

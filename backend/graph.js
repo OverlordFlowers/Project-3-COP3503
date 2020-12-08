@@ -148,7 +148,7 @@ const connectGraph = async (target, playlist_length, search) => {
   console.log(source);
   console.log("");
   trackIDs = queueSongs(source, trackIDs, playlist_length);
-  return trackIDs;
+  return { data: trackIDs, time: time };
 };
 
 function processCSV() {
@@ -288,7 +288,7 @@ module.exports = {
     return await connectGraph(target, 20, search).then(function (result) {
       console.log(result);
       // console.log({ data: result });
-      return { data: result };
+      return result;
     });
   },
 };

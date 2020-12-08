@@ -6,6 +6,7 @@ function Banner(props) {
   // Pass in spotify ID num
   const emotionList = ["Happiness", "Sadness", "Excited"];
 
+  // we need to make a slider for each emotion in the list
   const sliderComponents = emotionList.map((emotion, index) => (
     <ValueSlider
       key={index}
@@ -23,7 +24,10 @@ function Banner(props) {
           <div className="text-container">
             <div className="primary-text">Moody Tunes</div>
             {sliderComponents}
-            <div style={{ padding: "100px" }} className="row">
+            <div
+              style={{ padding: "100px", paddingBottom: "40px" }}
+              className="row"
+            >
               <button
                 className="btn btn-main col"
                 onClick={() => props.searchButton(1)}
@@ -37,7 +41,11 @@ function Banner(props) {
                 DFS Search
               </button>
             </div>
-            <div></div>
+            {props.time !== null ? (
+              <div style={{ color: "var(--primary-gray)", fontSize: "20px" }}>
+                Time taken: {props.time}ms
+              </div>
+            ) : null}
           </div>
           <div style={{ display: "flex", flex: "1 1 50%" }}>
             {props.curentSong !== undefined ? (

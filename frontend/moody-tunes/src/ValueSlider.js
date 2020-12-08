@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import "./slider.css";
 
 function ValueSlider(props) {
+  // internal state for the slider
   const [value, setValue] = useState();
 
+  // generic slider properties are defined
   let minValue = 0;
   let maxValue = 2500;
   let stepValue = 1;
 
+  // based on each slider's emotion, different properties are modifed
   if (props.emotion === "Happiness") {
     minValue = 0;
     maxValue = 2500;

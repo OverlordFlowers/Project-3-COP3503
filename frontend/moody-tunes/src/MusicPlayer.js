@@ -1,5 +1,6 @@
 import React from "react";
 
+// a music player to display the current song picked
 function MusicPlayer(props) {
   return (
     <div className="music-info">

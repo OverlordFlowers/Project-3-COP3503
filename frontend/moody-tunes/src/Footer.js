@@ -1,7 +1,8 @@
 import React from "react";
 import { Navbar } from "react-bootstrap";
-import "./Navbar.css"
+import "./Navbar.css";
 
+// a footer to add at the end of the page
 function Footer() {
   return (
     <Navbar

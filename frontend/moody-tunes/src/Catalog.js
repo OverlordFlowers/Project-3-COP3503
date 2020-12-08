@@ -1,6 +1,7 @@
 import React from "react";
 
-function Catalog(props) {
+// a card that displays catalog info
+function Catalog() {
   return (
     <div>
       <div className="header-text" style={{ marginTop: "40px" }}>

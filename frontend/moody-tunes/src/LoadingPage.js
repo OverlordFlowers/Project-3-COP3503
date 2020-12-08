@@ -1,6 +1,7 @@
 import React from "react";
 import { Spinner } from "react-bootstrap";
 
+// a loader for when content is being fetched
 function LoadingPage() {
   return (
     <div className="loading-container">

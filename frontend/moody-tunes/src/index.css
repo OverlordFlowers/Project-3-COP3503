@@ -38,23 +38,6 @@ code {
   border-color: var(--secondary-color) !important;
 }
 
-.btn-link-disabled,
-button[disabled] {
-  border: 1px solid var(--secondary-gray) !important;
-  background-color: var(--light-gray) !important;
-  color: var(--primary-gray) !important;
-  pointer-events: none;
-}
-
-input[disabled] {
-  border: 1px solid var(--secondary-gray);
-  background: var(--light-gray);
-  background-color: var(--light-gray);
-  color: var(--primary-gray);
-  border-radius: 2px;
-  opacity: 0.65;
-}
-
 img {
   width: inherit;
   position: absolute;
@@ -88,32 +71,6 @@ img {
   left: 50%;
   top: 50%;
   position: absolute;
-}
-
-.error-card {
-  background-color: var(--red-color);
-  color: var(--secondary-color);
-}
-
-.success-card {
-  background-color: var(--green-color);
-  color: var(--secondary-color);
-}
-
-/* Subtracting the height of the NavBar */
-.page-content {
-  display: flex;
-  min-height: 95vh;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 95vh;
-  min-height: -webkit-calc(100vh - 92px);
-  min-height: -moz-calc(100vh - 92px);
-  min-height: calc(100vh - 92px);
-}
-
-.sp-bottom {
-  margin-bottom: 40px !important;
 }
 
 .router-page-link {
