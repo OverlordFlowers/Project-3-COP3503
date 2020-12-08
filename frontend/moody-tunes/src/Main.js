@@ -4,16 +4,18 @@ import Banner from "./Banner";
 import Catalog from "./Catalog";
 import Footer from "./Footer";
 import Playlist from "./Playlist";
+import LoadingPage from "./LoadingPage";
 
 function Main() {
   const [song, setSong] = useState([]);
   const [songIndex, setSongIndex] = useState();
-  const [searchValue, setSearch] = useState(-1);
+  const [searchValue, setSearch] = useState(null);
   const [playlistData, setPData] = useState([]);
   const [valueList, setValueList] = useState([]);
   const [spotifyIDs, setSpotify] = useState([]);
+  const [isLoading, setLoading] = useState(false);
   const spotifyAuth =
-    "BQDDp-hfQXIGo4V1rFFgDZeUQEOeujwfr4uGmudVyhpna5KoAazfDdnVF2zSvPsEQaPKNa6BSg_Lyg2cC90";
+    "BQB8qSa57TC2CLZVy1Xih83nM_O_hTyvOrF5rgyqX2rnH9o0TBKWRRFypxQJ5Ga8B6O4ixg83SixCsIo8tU";
   //This will be a temp or default value
   let playlistDataDefault = [
     {
@@ -29,6 +31,7 @@ function Main() {
   ];
 
   useEffect(() => {
+    setValueList({ Happiness: 0, Sadness: 0, Excited: 0 });
     setPData(playlistDataDefault);
     setSong(playlistDataDefault[0]);
     setSongIndex(0);
@@ -51,7 +54,7 @@ function Main() {
       index = length - 1;
     }
     setSong(playlistData[index]);
-    setSongIndex(index);
+    setSongIndex(Number(index));
   };
 
   const spotifyFetch = (spotifyID) => {
@@ -156,31 +159,40 @@ function Main() {
         console.log("updated search");
       });
     }
-
-    if (searchValue == null) {
+    if (searchValue === null) {
       return;
     }
 
+    setLoading(true);
     performUpdate(computedEmotionValue);
     setSearch(null);
   }, [searchValue]);
 
+  useEffect(() => {
+    setLoading(false);
+  }, [song]);
+
   return (
-    <div className="large-container">
-      <Banner
-        curentSong={song}
-        songIndex={songIndex}
-        changeSong={changeSong}
-        searchButton={setSearch}
-        setSlideValue={setSlideValue}
-        valueList={valueList}
-        setValueList={setValueList}
-      />
-      {playlistData !== [] || playlistData !== undefined ? (
-        <Playlist data={playlistData} changeSong={changeSong} />
-      ) : null}
-      <Catalog />
-      <Footer />
+    <div>
+      {isLoading ? (
+        <LoadingPage />
+      ) : (
+        <div className="large-container">
+          <Banner
+            curentSong={song}
+            songIndex={songIndex}
+            changeSong={changeSong}
+            searchButton={setSearch}
+            setSlideValue={setSlideValue}
+            valueList={valueList}
+          />
+          {playlistData !== [] || playlistData !== undefined ? (
+            <Playlist data={playlistData} changeSong={changeSong} />
+          ) : null}
+          <Catalog />
+          <Footer />
+        </div>
+      )}
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./slider.css";
 
 function ValueSlider(props) {
-  const [value, setValue] = useState(props.valueList[props.emotion]);
+  const [value, setValue] = useState();
 
   let minValue = 0;
   let maxValue = 2500;

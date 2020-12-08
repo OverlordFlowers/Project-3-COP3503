@@ -53,6 +53,7 @@ function Playlist(props) {
   return (
     <div>
       <div className="header-text">Playlist</div>
+
       <div
         style={{
           display: "flex",
@@ -62,6 +63,12 @@ function Playlist(props) {
         }}
       >
         <div className="content-card">
+          <div className="row">
+            <div className="col playlist-text"></div>
+            <div className="col playlist-text">Song</div>
+            <div className="col playlist-text">Album</div>
+            <div className="col playlist-text">Artist</div>
+          </div>
           <div className="content-text">{songComponents}</div>
         </div>
       </div>

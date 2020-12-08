@@ -1,15 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import MusicPlayer from "./MusicPlayer";
 import ValueSlider from "./ValueSlider";
 
 function Banner(props) {
   // Pass in spotify ID num
   const emotionList = ["Happiness", "Sadness", "Excited"];
-
-  useEffect(() => {
-    const valueObject = { Happiness: 0, Sadness: 0, Excited: 0 };
-    props.setValueList(valueObject);
-  }, []);
 
   const sliderComponents = emotionList.map((emotion, index) => (
     <ValueSlider
