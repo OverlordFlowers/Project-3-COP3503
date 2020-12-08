@@ -1,5 +1,6 @@
 const csv = require("csv-parser");
 const fs = require("fs");
+const { connect } = require("http2");
 let results = [];
 
 class Graph {
@@ -142,7 +143,7 @@ const connectGraph = async (target, playlist_length, search) => {
     console.timeEnd("bfs");
   }
 
-  queueSongs(source, trackIDs, playlist_length);
+  trackIDs = queueSongs(source, trackIDs, playlist_length);
   return trackIDs;
 };
 
@@ -258,7 +259,7 @@ function queueSongs(src, trackIDs, playlist_length) {
 
     // If playlist count reached, return.
     if (trackIDs.length == playlist_length) {
-      return;
+      return trackIDs;
     }
     // If the node is adjacent and has not been visited, push it into the queu.
     for (let j = 0; j < trackMap.adjList.get(node).length; j++) {
@@ -273,16 +274,16 @@ function queueSongs(src, trackIDs, playlist_length) {
     }
   }
 }
-
+connectGraph(5000, 20, 1)
 // function call needs to return an array of track IDs
 module.exports = {
-  restAPI: function (target, search) {
-    return connectGraph(target, 20, search)
-      .then((res) => {
-        return { data: res };
-      })
-      .catch(() => {
-        console.log("error");
-      });
+  restAPI: async function (target, search) {
+    let data = connectGraph(target, 20, search).then(function(result){
+      console.log(result);
+      return result;
+    });
+    console.log("Async")
+    console.log(data);
+    return {data: data};
   },
 };

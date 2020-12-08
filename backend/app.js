@@ -7,6 +7,6 @@ app.listen(8000, () => {
 });
 
 app.get("/api/:target/:search", (req, res) => {
-  const { target, serach } = req.params;
-  res.json(graph.restAPI(target, serach));
+  const { target, search } = req.params;
+  res.json(graph.restAPI(target, search));
 });
