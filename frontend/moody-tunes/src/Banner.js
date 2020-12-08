@@ -31,13 +31,13 @@ function Banner(props) {
             <div style={{ padding: "100px" }} className="row">
               <button
                 className="btn btn-main col"
-                onClick={() => props.searchButton(0)}
+                onClick={() => props.searchButton(1)}
               >
                 BTS Search
               </button>
               <button
                 className="btn btn-main col"
-                onClick={() => props.searchButton(1)}
+                onClick={() => props.searchButton(0)}
               >
                 DFS Search
               </button>

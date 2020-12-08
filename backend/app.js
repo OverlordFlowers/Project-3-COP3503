@@ -1,6 +1,9 @@
 var express = require("express");
+var cors = require("cors");
 var graph = require("./graph");
 var app = express();
+
+app.use(cors());
 
 app.listen(8000, () => {
   console.log("Server running on port 8000");
