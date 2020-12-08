@@ -274,16 +274,14 @@ function queueSongs(src, trackIDs, playlist_length) {
     }
   }
 }
-connectGraph(5000, 20, 1)
+// connectGraph(5000, 20, 1)
 // function call needs to return an array of track IDs
 module.exports = {
   restAPI: async function (target, search) {
-    let data = connectGraph(target, 20, search).then(function(result){
+    return await connectGraph(target, 20, search).then(function (result) {
       console.log(result);
-      return result;
+      // console.log({ data: result });
+      return { data: result };
     });
-    console.log("Async")
-    console.log(data);
-    return {data: data};
   },
 };
