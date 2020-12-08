@@ -31,24 +31,11 @@ code {
   border: 0.5px solid var(--primary-color);
   border-radius: 3px;
 }
-.btn-main:hover,
-.btn-main:active,
-.btn-main:focus {
+.btn-main:hover {
   background: var(--secondary-color) !important;
   background-color: var(--secondary-color) !important;
   color: var(--primary-color) !important;
   border-color: var(--secondary-color) !important;
-}
-.btn-main:active,
-.btn-main:focus {
-  box-shadow: 0 0 0 0.2rem var(--third-color) !important;
-}
-.btn-main:disabled,
-button[disabled] {
-  border: 1px solid var(--secondary-gray) !important;
-  background-color: var(--light-gray) !important;
-  color: var(--primary-gray) !important;
-  pointer-events: none;
 }
 
 .btn-link-disabled,
