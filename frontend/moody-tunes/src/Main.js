@@ -101,8 +101,12 @@ function Main() {
   };
 
   useEffect(() => {
-    let computedEmotionValue =
-      valueList["Happiness"] + valueList["Sadness"] + valueList["Excited"];
+    let computedEmotionValue = Math.round(
+      5000 +
+        valueList["Happiness"] * valueList["Excited"] -
+        valueList["Sadness"]
+    );
+    console.log(computedEmotionValue);
     if (searchValue === 0) {
       console.log("BFS");
     } else if (searchValue === 1) {

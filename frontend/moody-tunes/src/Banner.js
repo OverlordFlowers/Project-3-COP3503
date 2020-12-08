@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import MusicPlayer from "./MusicPlayer";
 import ValueSlider from "./ValueSlider";
 
