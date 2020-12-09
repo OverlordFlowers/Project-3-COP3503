@@ -32,7 +32,7 @@ function Banner(props) {
                 className="btn btn-main col"
                 onClick={() => props.searchButton(1)}
               >
-                BTS Search
+                BFS Search
               </button>
               <button
                 className="btn btn-main col"

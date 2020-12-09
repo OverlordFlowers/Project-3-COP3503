@@ -19,7 +19,7 @@ function Main() {
 
   // This spotify auth token only lasts for an hour
   const spotifyAuth =
-    "BQD5pHmS_B-p35amytv-7-3eH9I8wz9TgRza_AcM2Y-_yJnBHmIGWCO_iUmqZcVPZQI7Sw5LshGAhKP0K5E";
+    "BQBuWffHLZmNtXkiV4u_Ql3PPY1X2Av3kDk0sJXTEar7J4IuIGmNkTpk1B4diGyEE5HyXLe8uNF5lK9Kcq0";
   // This will be a default value
   let playlistDataDefault = [
     {
