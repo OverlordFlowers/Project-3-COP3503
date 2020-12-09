@@ -1,6 +1,6 @@
 Moody Tunes
 
-This project was created by UF COP3503 students Ruo Chen, Devin Rodriguez, Leslie Harvey as their final project for Fall 2020 Semester.
+This project was created by UF COP3503 students Ruo Chen, Devin Rodriguez, and Leslie Harvey as their final project for Fall 2020 Semester.
 
 Moody Tunes is not to be copied by anyone (UF rules).
 
